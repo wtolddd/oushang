@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欧尚建材 - 品质家居首选</title>
+    <style>
+        /* ===== 全局样式 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B6914;
+            --primary-light: #C49A28;
+            --primary-dark: #5C4509;
+            --accent: #D4AF37;
+            --bg-dark: #1a1a1a;
+            --bg-card: #2a2a2a;
+            --text-light: #f5f5f5;
+            --text-muted: #aaa;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background-color: #f8f6f2;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ===== 顶部公告栏 ===== */
+        .top-bar {
+            background: var(--primary-dark);
+            color: var(--accent);
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        /* ===== 导航栏 ===== */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 75px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(196,154,40,0.4);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 3px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 11px;
+            color: #999;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 15px rgba(196,154,40,0.3);
+        }
+
+        .nav-phone {
+            color: var(--accent);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== 英雄区域 ===== */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(196,154,40,0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(196,154,40,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(196,154,40,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(196,154,40,0.2);
+            border: 1px solid rgba(196,154,40,0.5);
+            color: var(--accent);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 80px);
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 40px rgba(196,154,40,0.3);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #999;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #777;
+            letter-spacing: 2px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 14px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(196,154,40,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(196,154,40,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            padding: 14px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 2px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+
+        /* ===== 分类导航 ===== */
+        .categories {
+            background: white;
+            padding: 60px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 1px;
+            background: var(--primary-light);
+        }
+
+        .section-tag::before { right: 100%; margin-right: -15px; }
+        .section-tag::after { left: 100%; margin-left: -15px; }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+        }
+
+        .section-desc {
+            color: #888;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cat-card {
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            position: relative;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .cat-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            transition: transform 0.4s ease;
+        }
+
+        .cat-card:hover .cat-bg {
+            transform: scale(1.1);
+        }
+
+        .cat-card.tiles .cat-bg {
+            background: linear-gradient(135deg, #e8d5b0 0%, #c4a882 100%);
+        }
+
+        .cat-card.curtain .cat-bg {
+            background: linear-gradient(135deg, #d4b8e0 0%, #9b72b8 100%);
+        }
+
+        .cat-card.bath .cat-bg {
+            background: linear-gradient(135deg, #b8d4e8 0%, #5b9ec9 100%);
+        }
+
+        .cat-info {
+            position: relative;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 25px 25px 25px;
+            color: white;
+        }
+
+        .cat-name {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .cat-count {
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .cat-arrow {
+            position: absolute;
+            right: 20px;
+            bottom: 25px;
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .cat-card:hover .cat-arrow {
+            background: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* ===== 产品展示区 ===== */
+        .products-section {
+            padding: 80px 40px;
+        }
+
+        .products-section.alt {
+            background: #f0ece4;
+        }
+
+        /* 筛选栏 */
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 8px 22px;
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            color: #666;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* 产品网格 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: #1a1a1a;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        .product-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 瓷砖样式 */
+        .tile-marble {
+            background: linear-gradient(135deg, #f5f0e8 25%, #e8ddd0 25%, #e8ddd0 50%, #f5f0e8 50%, #f5f0e8 75%, #e8ddd0 75%);
+            background-size: 20px 20px;
+        }
+        .tile-wood {
+            background: repeating-linear-gradient(90deg, #c4956a 0, #c4956a 60px, #b8855a 60px, #b8855a 80px);
+        }
+        .tile-stone {
+            background: linear-gradient(45deg, #8c8c8c 25%, #999 25%, #999 50%, #8c8c8c 50%, #8c8c8c 75%, #999 75%);
+            background-size: 40px 40px;
+        }
+        .tile-mosaic {
+            background: 
+                linear-gradient(rgba(180,150,120,0.8) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(180,150,120,0.8) 1px, transparent 1px),
+                linear-gradient(135deg, #d4a870, #c49060, #b48050, #c49060);
+            background-size: 25px 25px, 25px 25px, 100% 100%;
+        }
+        .tile-white {
+            background: 
+                linear-gradient(rgba(220,220,220,0.8) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220,220,220,0.8) 1px, transparent 1px),
+                #f9f9f9;
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+        }
+        .tile-black {
+            background: 
+                linear-gradient(rgba(80,80,80,0.6) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(80,80,80,0.6) 1px, transparent 1px),
+                #1a1a1a;
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+        }
+
+        /* 窗帘样式 */
+        .curtain-linen {
+            background: repeating-linear-gradient(180deg, #d4c4a8 0, #d4c4a8 3px, #c8b89c 3px, #c8b89c 6px);
+        }
+        .curtain-velvet {
+            background: linear-gradient(135deg, #6b3a7d 0%, #9b5fb8 50%, #6b3a7d 100%);
+        }
+        .curtain-sheer {
+            background: linear-gradient(180deg, rgba(240,235,225,0.9), rgba(255,250,240,0.6));
+            border: 1px solid #eee;
+        }
+        .curtain-blackout {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a, #3c3c3c);
+        }
+        .curtain-stripe {
+            background: repeating-linear-gradient(90deg, #4a7c9e 0, #4a7c9e 15px, #f5f5f5 15px, #f5f5f5 30px);
+        }
+        .curtain-jacquard {
+            background: 
+                radial-gradient(circle at 20px 20px, rgba(180,140,80,0.4) 10px, transparent 10px),
+                linear-gradient(135deg, #c4a060, #d4b070);
+            background-size: 40px 40px, 100% 100%;
+        }
+
+        /* 卫浴样式 */
+        .bath-modern {
+            background: linear-gradient(135deg, #e8f4f8, #c5dde8);
+        }
+        .bath-classical {
+            background: linear-gradient(135deg, #f5e6d0, #e8c99a);
+        }
+        .bath-smart {
+            background: linear-gradient(135deg, #e8e8f0, #c0c0d8);
+        }
+        .bath-nature {
+            background: linear-gradient(135deg, #d4e8d0, #90b890);
+        }
+        .bath-luxury {
+            background: linear-gradient(135deg, #2a2a2a, #444, #2a2a2a);
+        }
+        .bath-minimal {
+            background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
+        }
+
+        .product-info {
+            padding: 18px 20px 20px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .product-desc {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-price span {
+            font-size: 12px;
+            font-weight: normal;
+            color: #999;
+        }
+
+        .product-btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .product-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(196,154,40,0.4);
+        }
+
+        /* ===== 区域标题 ===== */
+        .section-divider {
+            text-align: center;
+            padding: 20px 0 50px;
+        }
+
+        .section-divider .section-title {
+            font-size: 28px;
+        }
+
+        .section-icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* ===== 特色服务 ===== */
+        .features {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 80px 40px;
+        }
+
+        .features .section-title {
+            color: white;
+        }
+
+        .features .section-tag {
+            color: var(--accent);
+        }
+
+        .features .section-tag::before,
+        .features .section-tag::after {
+            background: var(--accent);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(196,154,40,0.2);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .feature-item:hover {
+            background: rgba(196,154,40,0.1);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        /* ===== 联系我们 ===== */
+        .contact {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-text strong {
+            display: block;
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .contact-text span {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .contact-form h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            outline: none;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196,154,40,0.4);
+        }
+
+        /* ===== 底部 ===== */
+        footer {
+            background: #0d0d0d;
+            color: #666;
+            padding: 50px 40px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent);
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #222;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom span {
+            color: var(--accent);
+        }
+
+        /* ===== 返回顶部 ===== */
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(196,154,40,0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            z-index: 999;
+        }
+
+        .back-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(196,154,40,0.6);
+        }
+
+        /* ===== 轮播横幅 ===== */
+        .banner {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 20px 40px;
+            overflow: hidden;
+        }
+
+        .banner-track {
+            display: flex;
+            gap: 80px;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .banner-item {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+        }
+
+        .banner-item span {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        /* ===== 模态框 ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 480px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .modal-overlay.show .modal {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .modal-desc {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .modal-close {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 1024px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 0 20px; }
+
+            .nav-links { display: none; }
+            .nav-phone { font-size: 12px; }
+
+            .hero h1 { letter-spacing: 4px; }
+
+            .hero-stats { gap: 30px; }
+
+            .cat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cat-card { height: 200px; }
+
+            .products-section { padding: 50px 20px; }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 淡入动画 ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部公告 -->
+<div class="top-bar">
+    🎉 开业特惠 · 全场瓷砖8折起 · 窗帘免费上门测量 · 卫浴套餐立减500元
+</div>
+
+<!-- 导航栏 -->
+<header>
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">欧</div>
+            <div class="logo-text">
+                <span>欧尚建材</span>
+                <span>OUSHANG BUILDING MATERIALS</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#tiles">瓷砖</a></li>
+            <li><a href="#curtains">窗帘</a></li>
+            <li><a href="#bathroom">卫浴</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+        <div class="nav-phone">
+            📞 &nbsp;<strong style="color:white">400-888-XXXX</strong>
+        </div>
+    </nav>
+</header>
+
+<!-- 英雄区域 -->
+<section class="hero" id="home">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+        <div class="hero-badge">✦ 品质家居 · 一站购齐 ✦</div>
+        <h1>欧尚<span>建材</span></h1>
+        <p class="hero-subtitle">OUSHANG BUILDING MATERIALS · 专注品质 · 成就美家</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">年品牌积淀</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3000+</span>
+                <span class="stat-label">款式可选</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10000+</span>
+                <span class="stat-label">客户信赖</span>
+            </div>
+        </div>
+        <div class="hero-btns">
+            <a href="#tiles" class="btn-primary">浏览产品</a>
+            <a href="#contact" class="btn-outline">预约咨询</a>
+        </div>
+    </div>
+</section>
+
+<!-- 滚动横幅 -->
+<div class="banner">
+    <div class="banner-track">
+        <span class="banner-item"><span>✦</span>瓷砖 · 大理石纹理</span>
+        <span class="banner-item"><span>✦</span>窗帘 · 免费上门测量</span>
+        <span class="banner-item"><span>✦</span>卫浴 · 整体方案设计</span>
+        <span class="banner-item"><span>✦</span>专业施工团队</span>
+        <span class="banner-item"><span>✦</span>5年质量保障</span>
+        <span class="banner-item"><span>✦</span>瓷砖 · 大理石纹理</span>
+        <span class="banner-item"><span>✦</span>窗帘 · 免费上门测量</span>
+        <span class="banner-item"><span>✦</span>卫浴 · 整体方案设计</span>
+        <span class="banner-item"><span>✦</span>专业施工团队</span>
+        <span class="banner-item"><span>✦</span>5年质量保障</span>
+    </div>
+</div>
+
+<!-- 分类导航 -->
+<section class="categories" id="category">
+    <div class="section-header fade-in">
+        <div class="section-tag">PRODUCT CATEGORY</div>
+        <h2 class="section-title">产品分类</h2>
+        <p class="section-desc">瓷砖 · 窗帘 · 卫浴 · 一站式家居建材采购</p>
+    </div>
+    <div class="cat-grid">
+        <a href="#tiles" class="cat-card tiles fade-in">
+            <div class="cat-bg">🏠</div>
+            <div class="cat-info">
+                <span class="cat-name">瓷砖系列</span>
+                <span class="cat-count">大理石 / 木纹 / 仿古 / 通体砖</span>
+                <div class="cat-arrow">→</div>
+            </div>
+        </a>
+        <a href="#curtains" class="cat-card curtain fade-in">
+            <div class="cat-bg">🪟</div>
+            <div class="cat-info">
+                <span class="cat-name">窗帘系列</span>
+                <span class="cat-count">遮光 / 纱帘 / 百叶 / 定制</span>
+                <div class="cat-arrow">→</div>
+            </div>
+        </a>
+        <a href="#bathroom" class="cat-card bath fade-in">
+            <div class="cat-bg">🚿</div>
+            <div class="cat-info">
+                <span class="cat-name">卫浴系列</span>
+                <span class="cat-count">淋浴房 / 马桶 / 浴缸 / 洁具</span>
+                <div class="cat-arrow">→</div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ====== 瓷砖区域 ====== -->
+<section class="products-section" id="tiles">
+   <div class="product-grid">
+    <div class="product-card fade-in">
+        <span class="product-badge">热销</span>
+        <div class="product-img tile-marble"></div>
+        <div class="product-info">
+            <div class="product-name">卡拉拉白大理石纹</div>
+            <div class="product-desc">意大利风格纹理，亮光抛釉工艺，适合客厅及大空间</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">新品</span>
+        <div class="product-img tile-wood"></div>
+        <div class="product-info">
+            <div class="product-name">北美橡木纹瓷砖</div>
+            <div class="product-desc">仿实木纹理，防滑耐磨，脚感舒适，适合卧室走廊</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <div class="product-img tile-stone"></div>
+        <div class="product-info">
+            <div class="product-name">灰色通体大板砖</div>
+            <div class="product-desc">现代简约风格，哑光面处理，超大规格彰显大气</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">特价</span>
+        <div class="product-img tile-mosaic"></div>
+        <div class="product-info">
+            <div class="product-name">复古仿古马赛克</div>
+            <div class="product-desc">地中海风格，色泽丰富，适合背景墙及卫生间装饰</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <div class="product-img tile-white"></div>
+        <div class="product-info">
+            <div class="product-name">纯白亮光釉面砖</div>
+            <div class="product-desc">高光泽度釉面，洁净明亮，适合厨卫空间使用</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">爆款</span>
+        <div class="product-img tile-black"></div>
+        <div class="product-info">
+            <div class="product-name">黑金通体抛光砖</div>
+            <div class="product-desc">高端轻奢风格，金色纹理点缀，适合玄关客厅</div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ====== 窗帘区域 ====== -->
+<section class="products-section alt" id="curtains">
+    <div class="product-grid">
+    <div class="product-card fade-in">
+        <span class="product-badge">热销</span>
+        <div class="product-img curtain-linen"></div>
+        <div class="product-info">
+            <div class="product-name">亚麻原色窗帘</div>
+            <div class="product-desc">天然亚麻面料，透气自然，北欧简约风格首选</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">新品</span>
+        <div class="product-img curtain-velvet"></div>
+        <div class="product-info">
+            <div class="product-name">丝绒重磅遮光帘</div>
+            <div class="product-desc">100%遮光，隔音保温，高品质丝绒面料，奢华质感</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <div class="product-img curtain-sheer"></div>
+        <div class="product-info">
+            <div class="product-name">轻柔雪纺纱帘</div>
+            <div class="product-desc">薄透柔美，光线柔和，配合遮光帘使用效果更佳</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">爆款</span>
+        <div class="product-img curtain-blackout"></div>
+        <div class="product-info">
+            <div class="product-name">深空遮光卧室帘</div>
+            <div class="product-desc">加厚三层复合面料，遮光率99%，睡眠护眼必备</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <div class="product-img curtain-stripe"></div>
+        <div class="product-info">
+            <div class="product-name">海军条纹系列</div>
+            <div class="product-desc">经典蓝白条纹，地中海风情，书房客厅均适用</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">特价</span>
+        <div class="product-img curtain-jacquard"></div>
+        <div class="product-info">
+            <div class="product-name">金色提花豪华帘</div>
+            <div class="product-desc">立体提花工艺，金丝点缀，欧式古典奢华风格</div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ====== 卫浴区域 ====== -->
+<section class="products-section" id="bathroom">
+    <div class="product-grid">
+    <div class="product-card fade-in">
+        <span class="product-badge">套装</span>
+        <div class="product-img bath-modern"><span>🚿</span></div>
+        <div class="product-info">
+            <div class="product-name">极简现代淋浴房</div>
+            <div class="product-desc">钢化玻璃，无框设计，防爆防滑，简洁大方</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">热销</span>
+        <div class="product-img bath-classical"><span>🛁</span></div>
+        <div class="product-info">
+            <div class="product-name">欧式独立浴缸</div>
+            <div class="product-desc">铸铁材质，保温性强，爪脚设计，浪漫欧式风情</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">新品</span>
+        <div class="product-img bath-smart"><span>🪥</span></div>
+        <div class="product-info">
+            <div class="product-name">智能感应马桶</div>
+            <div class="product-desc">自动感应冲洗，温水清洗，坐垫加热，五星级享受</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <div class="product-img bath-nature"><span>🌿</span></div>
+        <div class="product-info">
+            <div class="product-name">原木台盆柜组合</div>
+            <div class="product-desc">实木防水处理，陶瓷台盆，自然质朴，禅意生活</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">爆款</span>
+        <div class="product-img bath-luxury"><span>✨</span></div>
+        <div class="product-info">
+            <div class="product-name">黑金轻奢全套卫浴</div>
+            <div class="product-desc">哑黑拉丝金配色，高端定制，全套配件整体安装</div>
+        </div>
+    </div>
+
+    <div class="product-card fade-in">
+        <span class="product-badge">特价</span>
+        <div class="product-img bath-minimal"><span>🪞</span></div>
+        <div class="product-info">
+            <div class="product-name">智能浴室镜柜</div>
+            <div class="product-desc">LED灯光，防雾功能，内置收纳，触控调光</div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- 联系我们 -->
+<section class="contact" id="contact">
+    <div class="section-header fade-in">
+        <div class="section-tag">CONTACT US</div>
+        <h2 class="section-title">联系我们</h2>
+        <p class="section-desc">欢迎到访门店，或在线预约咨询，我们竭诚为您服务</p>
+    </div>
+    <div class="contact-grid">
+        <div class="contact-info fade-in">
+            <h3>门店信息</h3>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-text">
+                    <strong>门店地址</strong>
+                    <span>XX市XX区建材城A区 欧尚建材旗舰店</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-text">
+                    <strong>联系电话</strong>
+                    <span>400-888-XXXX &nbsp;｜&nbsp; 138-XXXX-XXXX</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🕐</div>
+                <div class="contact-text">
+                    <strong>营业时间</strong>
+                    <span>每天 09:00 - 20:00（节假日不休）</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">💬</div>
+                <div class="contact-text">
+                    <strong>微信客服</strong>
+                    <span>微信扫码咨询，24小时在线回复</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🚗</div>
+                <div class="contact-text">
+                    <strong>免费服务</strong>
+                    <span>市区内免费上门测量 · 满额免费配送</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form fade-in">
+            <h3>在线咨询</h3>
+            <form onsubmit="submitForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="您的姓名 *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="联系电话 *" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select>
+                        <option value="">请选择咨询类别</option>
+                        <option value="tiles">瓷砖系列</option>
+                        <option value="curtains">窗帘系列</option>
+                        <option value="bathroom">卫浴系列</option>
+                        <option value="design">整体设计方案</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="请描述您的需求，例如：户型面积、风格偏好、预算范围等..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">📩 立即提交咨询</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- 底部 -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <div class="logo" style="text-decoration:none;display:flex;align-items:center;gap:12px">
+                <div class="logo-icon">欧</div>
+                <div class="logo-text">
+                    <span>欧尚建材</span>
+                    <span style="color:#555;font-size:11px;letter-spacing:3px">OUSHANG MATERIALS</span>
+                </div>
+            </div>
+            <p>欧尚建材成立十余年，专注为广大家庭提供高品质的瓷砖、窗帘及卫浴产品。我们坚持品质为先，服务至上，致力于让每一个家庭都拥有美好的居住体验。</p>
+        </div>
+        <div class="footer-col">
+            <h4>产品系列</h4>
+            <ul>
+                <li><a href="#tiles">大理石纹瓷砖</a></li>
+                <li><a href="#tiles">木纹瓷砖</a></li>
+                <li><a href="#tiles">仿古砖</a></li>
+                <li><a href="#curtains">遮光窗帘</a></li>
+                <li><a href="#curtains">纱帘系列</a></li>
+                <li><a href="#bathroom">卫浴套装</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>服务支持</h4>
+            <ul>
+                <li><a href="#">上门测量</a></li>
+                <li><a href="#">专业施工</a></li>
+                <li><a href="#">设计方案</a></li>
+                <li><a href="#">售后保障</a></li>
+                <li><a href="#">产品保修</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul>
+                <li><a href="#">品牌故事</a></li>
+                <li><a href="#">荣誉资质</a></li>
+                <li><a href="#">合作品牌</a></li>
+                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#">加盟合作</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 <span>欧尚建材</span> 版权所有 &nbsp;|&nbsp; 品质家居 · 成就美好生活</p>
+    </div>
+</footer>
+
+<!-- 返回顶部 -->
+<a href="#home" class="back-top">↑</a>
+
+<!-- 模态框 -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal">
+        <div class="modal-icon" id="modalIcon">🏠</div>
+        <div class="modal-title" id="modalTitle">产品名称</div>
+        <div class="modal-desc" id="modalDesc">产品描述</div>
+        <p style="font-size:13px;color:#aaa;margin-bottom:20px">如需了解详情或预约看样，请致电我们或在线咨询</p>
+        <div style="background:#f8f6f2;border-radius:12px;padding:15px;margin-bottom:20px;font-size:14px;color:#555;">
+            📞 <strong style="color:#8B6914">400-888-XXXX</strong> &nbsp;｜&nbsp; 周一至周日 09:00-20:00
+        </div>
+        <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('show')">
+            关闭
+        </button>
+    </div>
+</div>
+
+<script>
+    // ===== 滚动淡入动画 =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== 导航高亮 =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // ===== 筛选按钮 =====
+    function filterProducts(btn) {
+        const parent = btn.closest('.products-section') || btn.closest('section');
+        parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    // ===== 产品模态框 =====
+    const icons = {
+        '瓷砖': '🏠', '窗帘': '🪟', '马桶': '🪥',
+        '浴缸': '🛁', '淋浴': '🚿', '镜': '🪞',
+        '台盆': '🌿', '卫浴': '✨'
+    };
+
+    function showModal(name, desc) {
+        let icon = '🏠';
+        for (const key in icons) {
+            if (name.includes(key)) { icon = icons[key]; break; }
+        }
+        document.getElementById('modalIcon').textContent = icon;
+        document.getElementById('modalTitle').textContent = name;
+        document.getElementById('modalDesc').textContent = desc;
+        document.getElementById('modalOverlay').classList.add('show');
+    }
+
+    function closeModal(e) {
+        if (e.target === document.getElementById('modalOverlay')) {
+            document.getElementById('modalOverlay').classList.remove('show');
+        }
+    }
+
+    // ===== 表单提交 =====
+    function submitForm(e) {
+        e.preventDefault();
+        document.getElementById('modalIcon').textContent = '✅';
+        document.getElementById('modalTitle').textContent = '咨询提交成功！';
+        document.getElementById('modalDesc').textContent = '感谢您的咨询，我们的专业顾问将在24小时内联系您，请保持电话畅通。';
+        document.getElementById('modalOverlay').classList.add('show');
+        e.target.reset();
+    }
+
+    // ===== ESC关闭模态框 =====
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.getElementById('modalOverlay').classList.remove('show');
+        }
+    });
+</script>
+
+</body>
+</html>
