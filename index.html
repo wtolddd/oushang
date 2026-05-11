@@ -3,1584 +3,1306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欧尚建材 - 品质家居首选</title>
+    <title>欧尚建材 - 瓷砖·浴室柜·窗帘批发</title>
     <style>
-        /* ===== 全局样式 ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #8B6914;
-            --primary-light: #C49A28;
-            --primary-dark: #5C4509;
-            --accent: #D4AF37;
-            --bg-dark: #1a1a1a;
-            --bg-card: #2a2a2a;
-            --text-light: #f5f5f5;
-            --text-muted: #aaa;
-            --white: #ffffff;
+            --gold: #C49A28;
+            --gold-dark: #8B6914;
+            --gold-light: #F0D060;
+            --dark: #1a1a1a;
+            --bg: #f8f6f2;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-            background-color: #f8f6f2;
-            color: #333;
-            overflow-x: hidden;
+            background: var(--bg); color: #333; overflow-x: hidden;
         }
 
-        /* ===== 顶部公告栏 ===== */
-        .top-bar {
-            background: var(--primary-dark);
-            color: var(--accent);
-            text-align: center;
-            padding: 8px;
-            font-size: 13px;
-            letter-spacing: 2px;
+        .topbar {
+            background: var(--dark); color: var(--gold);
+            text-align: center; padding: 9px;
+            font-size: 13px; letter-spacing: 2px;
         }
 
-        /* ===== 导航栏 ===== */
         header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 0 40px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+            padding: 0 30px; position: sticky; top: 0;
+            z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-
         nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 75px;
+            display: flex; align-items: center;
+            justify-content: space-between; height: 70px;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-box {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; font-size: 20px; font-weight: 900; color: white;
         }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(196,154,40,0.4);
+        .logo-txt span:first-child {
+            display: block; font-size: 20px; font-weight: 900;
+            color: var(--gold); letter-spacing: 3px;
         }
+        .logo-txt span:last-child { display: block; font-size: 10px; color: #666; letter-spacing: 3px; }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
+        .nav-menu { display: flex; list-style: none; gap: 4px; }
+        .nav-menu a {
+            color: #ccc; text-decoration: none; padding: 7px 16px;
+            border-radius: 20px; font-size: 14px; letter-spacing: 1px; transition: all 0.3s;
         }
-
-        .logo-text span:first-child {
-            font-size: 22px;
-            font-weight: 900;
-            color: var(--accent);
-            letter-spacing: 3px;
+        .nav-menu a:hover, .nav-menu a.active {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: white;
         }
-
-        .logo-text span:last-child {
-            font-size: 11px;
-            color: #999;
-            letter-spacing: 4px;
+        .nav-menu li { position: relative; }
+        .dropdown {
+            position: absolute; top: 100%; left: 0;
+            background: #1a1a1a; border: 1px solid #333;
+            border-radius: 10px; min-width: 140px;
+            padding: 8px 0; display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 999;
         }
+        .nav-menu li:hover .dropdown { display: block; }
+        .dropdown a { display: block; padding: 8px 18px; border-radius: 0; font-size: 13px; color: #aaa; }
+        .dropdown a:hover { background: rgba(196,154,40,0.15); color: var(--gold); }
+        .nav-phone { color: var(--gold); font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+        .hamburger span { width: 25px; height: 2px; background: var(--gold); border-radius: 2px; }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 5px;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            box-shadow: 0 4px 15px rgba(196,154,40,0.3);
-        }
-
-        .nav-phone {
-            color: var(--accent);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* ===== 英雄区域 ===== */
+        /* 英雄区 */
         .hero {
-            height: 100vh;
-            min-height: 600px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            height: 100vh; min-height: 580px;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1f1f1f 50%, #0d0d0d 100%);
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative; overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(196,154,40,0.15) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse 4s ease-in-out infinite;
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(196,154,40,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(196,154,40,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
-
-        .hero-pattern {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                linear-gradient(rgba(196,154,40,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(196,154,40,0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+        .hero-glow {
+            position: absolute; width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(196,154,40,0.12) 0%, transparent 65%);
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+            animation: glow 5s ease-in-out infinite;
         }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        @keyframes glow {
+            0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%,-50%) scale(1.15); opacity: 1; }
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .hero-content { position: relative; z-index: 1; padding: 20px; }
+        .hero-tag {
+            display: inline-block; border: 1px solid rgba(196,154,40,0.5);
+            background: rgba(196,154,40,0.1); color: var(--gold);
+            padding: 6px 22px; border-radius: 20px; font-size: 12px;
+            letter-spacing: 4px; margin-bottom: 25px;
         }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(196,154,40,0.2);
-            border: 1px solid rgba(196,154,40,0.5);
-            color: var(--accent);
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-        }
-
         .hero h1 {
-            font-size: clamp(40px, 7vw, 80px);
-            font-weight: 900;
-            color: var(--white);
-            letter-spacing: 8px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 40px rgba(196,154,40,0.3);
+            font-size: clamp(38px, 7vw, 78px); font-weight: 900; color: white;
+            letter-spacing: 10px; margin-bottom: 12px;
         }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .hero-subtitle {
-            font-size: 16px;
-            color: #999;
-            letter-spacing: 4px;
-            margin-bottom: 50px;
+        .hero-sub { color: #666; font-size: 14px; letter-spacing: 4px; margin-bottom: 45px; }
+        .hero-cats { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .hero-cat {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(196,154,40,0.3);
+            color: #ccc; padding: 10px 25px; border-radius: 25px; font-size: 14px;
+            letter-spacing: 2px; text-decoration: none; transition: all 0.3s;
         }
-
-        .hero-stats {
-            display: flex;
-            gap: 60px;
-            justify-content: center;
-            margin-bottom: 50px;
+        .hero-cat:hover { background: var(--gold-dark); border-color: var(--gold); color: white; transform: translateY(-3px); }
+        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            color: white; padding: 13px 38px; border-radius: 28px;
+            text-decoration: none; font-size: 14px; font-weight: 600;
+            letter-spacing: 2px; transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(196,154,40,0.3);
         }
-
-        .stat-item {
-            text-align: center;
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(196,154,40,0.5); }
+        .btn-border {
+            background: transparent; color: var(--gold); padding: 13px 38px;
+            border-radius: 28px; text-decoration: none; font-size: 14px; font-weight: 600;
+            letter-spacing: 2px; border: 2px solid var(--gold); transition: all 0.3s;
         }
+        .btn-border:hover { background: var(--gold); color: #111; transform: translateY(-3px); }
 
-        .stat-number {
-            display: block;
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--accent);
+        /* 滚动条幅 */
+        .marquee-bar { background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark)); padding: 12px 0; overflow: hidden; }
+        .marquee-track { display: flex; gap: 60px; animation: marquee 20s linear infinite; white-space: nowrap; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .marquee-item { color: rgba(255,255,255,0.9); font-size: 13px; letter-spacing: 2px; flex-shrink: 0; }
+
+        /* 通用section */
+        .section { padding: 80px 30px; }
+        .section.alt { background: #f0ece3; }
+        .section.dark { background: linear-gradient(135deg, #111, #1e1e1e); }
+        .sec-head { text-align: center; margin-bottom: 55px; }
+        .sec-tag {
+            display: inline-block; color: var(--gold-dark); font-size: 12px;
+            letter-spacing: 4px; margin-bottom: 10px; position: relative; padding: 0 25px;
         }
-
-        .stat-label {
-            font-size: 12px;
-            color: #777;
-            letter-spacing: 2px;
+        .sec-tag::before, .sec-tag::after {
+            content: ''; position: absolute; top: 50%;
+            width: 35px; height: 1px; background: var(--gold);
         }
+        .sec-tag::before { right: 100%; margin-right: -20px; }
+        .sec-tag::after { left: 100%; margin-left: -20px; }
+        .sec-title { font-size: 30px; font-weight: 900; color: #111; letter-spacing: 3px; }
+        .section.dark .sec-title { color: white; }
+        .section.dark .sec-tag { color: var(--gold); }
+        .sec-desc { color: #888; font-size: 13px; margin-top: 10px; letter-spacing: 1px; }
 
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
+        /* 大分类卡片 */
+        .main-cats { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .main-cat-card {
+            border-radius: 18px; overflow: hidden; text-decoration: none;
+            position: relative; height: 260px; display: block; transition: all 0.4s;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 14px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(196,154,40,0.3);
+        .main-cat-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .mcc-img {
+            position: absolute; inset: 0; display: flex;
+            align-items: center; justify-content: center; font-size: 70px;
         }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(196,154,40,0.5);
+        .mcc-tile { background: linear-gradient(135deg, #e0d5c0, #c8b896); }
+        .mcc-bath { background: linear-gradient(135deg, #c8dde8, #90b8cc); }
+        .mcc-curtain { background: linear-gradient(135deg, #d8c8e0, #b090c0); }
+        .mcc-info {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            padding: 30px 22px 22px; color: white;
         }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--accent);
-            padding: 14px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            border: 2px solid var(--accent);
-            transition: all 0.3s ease;
+        .mcc-name { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+        .mcc-sub { font-size: 12px; opacity: 0.75; margin-top: 3px; }
+        .mcc-arrow {
+            position: absolute; right: 18px; bottom: 18px; width: 32px; height: 32px;
+            background: rgba(255,255,255,0.2); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s;
         }
+        .main-cat-card:hover .mcc-arrow { background: var(--gold); }
 
-        .btn-outline:hover {
-            background: var(--accent);
-            color: #1a1a1a;
-            transform: translateY(-3px);
+        /* 子分类标签 */
+        .sub-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+        .sub-tab {
+            padding: 9px 24px; border-radius: 22px; border: 2px solid #ddd;
+            background: white; cursor: pointer; font-size: 13px; letter-spacing: 1px;
+            color: #666; transition: all 0.3s; font-family: inherit;
         }
+        .sub-tab:hover, .sub-tab.active { border-color: var(--gold-dark); background: var(--gold-dark); color: white; }
 
-        /* ===== 分类导航 ===== */
-        .categories {
-            background: white;
-            padding: 60px 40px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-tag {
-            display: inline-block;
-            color: var(--primary);
-            font-size: 13px;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            position: relative;
-            padding: 0 20px;
-        }
-
-        .section-tag::before,
-        .section-tag::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 1px;
-            background: var(--primary-light);
-        }
-
-        .section-tag::before { right: 100%; margin-right: -15px; }
-        .section-tag::after { left: 100%; margin-left: -15px; }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 900;
-            color: #1a1a1a;
-            letter-spacing: 2px;
-        }
-
-        .section-desc {
-            color: #888;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        .cat-grid {
+        /* ===== 图片网格 - 优化版 ===== */
+        .img-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px; max-width: 1200px; margin: 0 auto;
         }
 
-        .cat-card {
-            border-radius: 20px;
+        .img-card {
+            border-radius: 14px; overflow: hidden;
+            background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.35s; cursor: pointer;
+            text-decoration: none; display: block;
+        }
+        .img-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.15); }
+        .img-card.hidden { display: none; }
+
+        /* 固定宽高比容器 - 关键修复 */
+        .img-wrap {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 比例 */
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            position: relative;
-            height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-
-        .cat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-        }
-
-        .cat-bg {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            transition: transform 0.4s ease;
-        }
-
-        .cat-card:hover .cat-bg {
-            transform: scale(1.1);
-        }
-
-        .cat-card.tiles .cat-bg {
-            background: linear-gradient(135deg, #e8d5b0 0%, #c4a882 100%);
-        }
-
-        .cat-card.curtain .cat-bg {
-            background: linear-gradient(135deg, #d4b8e0 0%, #9b72b8 100%);
-        }
-
-        .cat-card.bath .cat-bg {
-            background: linear-gradient(135deg, #b8d4e8 0%, #5b9ec9 100%);
-        }
-
-        .cat-info {
-            position: relative;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 25px 25px 25px;
-            color: white;
-        }
-
-        .cat-name {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            display: block;
-        }
-
-        .cat-count {
-            font-size: 12px;
-            opacity: 0.8;
-            letter-spacing: 1px;
-        }
-
-        .cat-arrow {
-            position: absolute;
-            right: 20px;
-            bottom: 25px;
-            width: 35px;
-            height: 35px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .cat-card:hover .cat-arrow {
-            background: var(--accent);
-            transform: translateX(5px);
-        }
-
-        /* ===== 产品展示区 ===== */
-        .products-section {
-            padding: 80px 40px;
-        }
-
-        .products-section.alt {
             background: #f0ece4;
         }
 
-        /* 筛选栏 */
-        .filter-bar {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            padding: 8px 22px;
-            border-radius: 20px;
-            border: 2px solid #ddd;
-            background: white;
-            cursor: pointer;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            color: #666;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
-        }
-
-        /* 产品网格 */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-
-        .product-badge {
+        .img-wrap img {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--accent);
-            color: #1a1a1a;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 12px;
-            letter-spacing: 1px;
-            z-index: 1;
-        }
-
-        .product-img {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 瓷砖样式 */
-        .tile-marble {
-            background: linear-gradient(135deg, #f5f0e8 25%, #e8ddd0 25%, #e8ddd0 50%, #f5f0e8 50%, #f5f0e8 75%, #e8ddd0 75%);
-            background-size: 20px 20px;
-        }
-        .tile-wood {
-            background: repeating-linear-gradient(90deg, #c4956a 0, #c4956a 60px, #b8855a 60px, #b8855a 80px);
-        }
-        .tile-stone {
-            background: linear-gradient(45deg, #8c8c8c 25%, #999 25%, #999 50%, #8c8c8c 50%, #8c8c8c 75%, #999 75%);
-            background-size: 40px 40px;
-        }
-        .tile-mosaic {
-            background: 
-                linear-gradient(rgba(180,150,120,0.8) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(180,150,120,0.8) 1px, transparent 1px),
-                linear-gradient(135deg, #d4a870, #c49060, #b48050, #c49060);
-            background-size: 25px 25px, 25px 25px, 100% 100%;
-        }
-        .tile-white {
-            background: 
-                linear-gradient(rgba(220,220,220,0.8) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(220,220,220,0.8) 1px, transparent 1px),
-                #f9f9f9;
-            background-size: 40px 40px, 40px 40px, 100% 100%;
-        }
-        .tile-black {
-            background: 
-                linear-gradient(rgba(80,80,80,0.6) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(80,80,80,0.6) 1px, transparent 1px),
-                #1a1a1a;
-            background-size: 40px 40px, 40px 40px, 100% 100%;
-        }
-
-        /* 窗帘样式 */
-        .curtain-linen {
-            background: repeating-linear-gradient(180deg, #d4c4a8 0, #d4c4a8 3px, #c8b89c 3px, #c8b89c 6px);
-        }
-        .curtain-velvet {
-            background: linear-gradient(135deg, #6b3a7d 0%, #9b5fb8 50%, #6b3a7d 100%);
-        }
-        .curtain-sheer {
-            background: linear-gradient(180deg, rgba(240,235,225,0.9), rgba(255,250,240,0.6));
-            border: 1px solid #eee;
-        }
-        .curtain-blackout {
-            background: linear-gradient(135deg, #2c2c2c, #1a1a1a, #3c3c3c);
-        }
-        .curtain-stripe {
-            background: repeating-linear-gradient(90deg, #4a7c9e 0, #4a7c9e 15px, #f5f5f5 15px, #f5f5f5 30px);
-        }
-        .curtain-jacquard {
-            background: 
-                radial-gradient(circle at 20px 20px, rgba(180,140,80,0.4) 10px, transparent 10px),
-                linear-gradient(135deg, #c4a060, #d4b070);
-            background-size: 40px 40px, 100% 100%;
-        }
-
-        /* 卫浴样式 */
-        .bath-modern {
-            background: linear-gradient(135deg, #e8f4f8, #c5dde8);
-        }
-        .bath-classical {
-            background: linear-gradient(135deg, #f5e6d0, #e8c99a);
-        }
-        .bath-smart {
-            background: linear-gradient(135deg, #e8e8f0, #c0c0d8);
-        }
-        .bath-nature {
-            background: linear-gradient(135deg, #d4e8d0, #90b890);
-        }
-        .bath-luxury {
-            background: linear-gradient(135deg, #2a2a2a, #444, #2a2a2a);
-        }
-        .bath-minimal {
-            background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
-        }
-
-        .product-info {
-            padding: 18px 20px 20px;
-        }
-
-        .product-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-
-        .product-desc {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 14px;
-            line-height: 1.6;
-        }
-
-        .product-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .product-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .product-price span {
-            font-size: 12px;
-            font-weight: normal;
-            color: #999;
-        }
-
-        .product-btn {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 1px;
-        }
-
-        .product-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(196,154,40,0.4);
-        }
-
-        /* ===== 区域标题 ===== */
-        .section-divider {
-            text-align: center;
-            padding: 20px 0 50px;
-        }
-
-        .section-divider .section-title {
-            font-size: 28px;
-        }
-
-        .section-icon {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* ===== 特色服务 ===== */
-        .features {
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            padding: 80px 40px;
-        }
-
-        .features .section-title {
-            color: white;
-        }
-
-        .features .section-tag {
-            color: var(--accent);
-        }
-
-        .features .section-tag::before,
-        .features .section-tag::after {
-            background: var(--accent);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .feature-item {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(196,154,40,0.2);
-            border-radius: 16px;
-            padding: 35px 25px;
-            text-align: center;
-            transition: all 0.4s;
-        }
-
-        .feature-item:hover {
-            background: rgba(196,154,40,0.1);
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .feature-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .feature-desc {
-            font-size: 13px;
-            color: #888;
-            line-height: 1.7;
-        }
-
-        /* ===== 联系我们 ===== */
-        .contact {
-            padding: 80px 40px;
-            background: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--accent);
-            letter-spacing: 2px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .contact-text strong {
-            display: block;
-            font-size: 14px;
-            color: #1a1a1a;
-            margin-bottom: 3px;
-        }
-
-        .contact-text span {
-            font-size: 13px;
-            color: #777;
-        }
-
-        .contact-form h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--accent);
-            letter-spacing: 2px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-            outline: none;
-            background: #fafafa;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary);
-            background: white;
-        }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            letter-spacing: 2px;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(196,154,40,0.4);
-        }
-
-        /* ===== 底部 ===== */
-        footer {
-            background: #0d0d0d;
-            color: #666;
-            padding: 50px 40px 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto 40px;
-        }
-
-        .footer-brand p {
-            font-size: 13px;
-            line-height: 1.8;
-            color: #555;
-            margin-top: 15px;
-        }
-
-        .footer-col h4 {
-            color: var(--accent);
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #222;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #555;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1a1a1a;
-            padding-top: 25px;
-            text-align: center;
-            font-size: 12px;
-            color: #333;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .footer-bottom span {
-            color: var(--accent);
-        }
-
-        /* ===== 返回顶部 ===== */
-        .back-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(196,154,40,0.4);
-            transition: all 0.3s;
-            text-decoration: none;
-            font-size: 20px;
-            color: white;
-            z-index: 999;
-        }
-
-        .back-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(196,154,40,0.6);
-        }
-
-        /* ===== 轮播横幅 ===== */
-        .banner {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            padding: 20px 40px;
-            overflow: hidden;
-        }
-
-        .banner-track {
-            display: flex;
-            gap: 80px;
-            animation: scroll 20s linear infinite;
-            white-space: nowrap;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .banner-item {
-            color: rgba(255,255,255,0.8);
-            font-size: 14px;
-            letter-spacing: 2px;
-            flex-shrink: 0;
-        }
-
-        .banner-item span {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
-        /* ===== 模态框 ===== */
-        .modal-overlay {
-            position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+        .img-card:hover .img-wrap img { transform: scale(1.06); }
+
+        .img-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.45);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s; z-index: 2;
+        }
+        .img-card:hover .img-overlay { opacity: 1; }
+        .img-overlay span {
+            color: white; font-size: 14px; letter-spacing: 2px;
+            border: 1px solid rgba(255,255,255,0.8);
+            padding: 8px 22px; border-radius: 20px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .img-badge {
+            position: absolute; top: 12px; left: 12px;
+            background: var(--gold); color: #111;
+            font-size: 11px; font-weight: 700;
+            padding: 3px 10px; border-radius: 10px;
+            letter-spacing: 1px; z-index: 3;
+        }
+
+        /* 占位图 */
+        .img-placeholder {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 8px; color: #ccc; font-size: 12px;
+            background: linear-gradient(135deg, #f0ece4, #e8e0d5);
+        }
+        .img-placeholder .ph-icon { font-size: 40px; opacity: 0.5; }
+
+        /* ===== 灯箱 - 完全重写 ===== */
+        .lightbox {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
             transition: opacity 0.3s;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .lightbox.show { opacity: 1; pointer-events: all; }
+
+        .lb-wrapper {
+            position: relative;
+            display: flex; flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            max-width: 95vw;
         }
 
-        .modal-overlay.show {
-            opacity: 1;
-            pointer-events: all;
+        /* 图片展示区 - 固定尺寸，图片在内部自适应 */
+        .lb-stage {
+            width: min(900px, 90vw);
+            height: min(600px, 75vh);
+            background: #0a0a0a;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            position: relative;
         }
 
-        .modal {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 480px;
-            width: 90%;
-            transform: scale(0.8);
-            transition: transform 0.3s;
-            text-align: center;
+        .lb-stage img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 12px;
         }
 
-        .modal-overlay.show .modal {
-            transform: scale(1);
+        .lb-spinner {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 12px;
+            color: #555;
         }
-
-        .modal-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
+        .lb-spinner .spin {
+            width: 40px; height: 40px;
+            border: 3px solid #222;
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .modal-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
+        .lb-close {
+            position: absolute; top: -15px; right: -15px;
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%; color: white; font-size: 18px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; z-index: 10;
         }
+        .lb-close:hover { background: #c0392b; border-color: #c0392b; }
 
-        .modal-desc {
-            color: #888;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 25px;
+        /* 左右箭头 */
+        .lb-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%; color: white; font-size: 22px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; z-index: 10; user-select: none;
         }
+        .lb-arrow:hover { background: var(--gold-dark); border-color: var(--gold); }
+        .lb-arrow.left { left: -70px; }
+        .lb-arrow.right { right: -70px; }
 
-        .modal-close {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            padding: 12px 40px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            letter-spacing: 1px;
+        .lb-info { display: flex; align-items: center; gap: 20px; }
+        .lb-title { color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: 2px; }
+        .lb-counter { color: #555; font-size: 13px; }
+
+        /* 服务区 */
+        .service-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .svc-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(196,154,40,0.2);
+            border-radius: 16px; padding: 32px 22px; text-align: center; transition: all 0.35s;
         }
+        .svc-card:hover { background: rgba(196,154,40,0.1); border-color: var(--gold); transform: translateY(-5px); }
+        .svc-icon { font-size: 38px; margin-bottom: 14px; }
+        .svc-title { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 8px; letter-spacing: 1px; }
+        .svc-desc { font-size: 12px; color: #777; line-height: 1.7; }
 
-        /* ===== 响应式 ===== */
+        /* 联系 */
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1000px; margin: 0 auto; }
+        .contact-block h3, .contact-form h3 {
+            font-size: 20px; font-weight: 700; color: #111; margin-bottom: 25px;
+            padding-bottom: 12px; border-bottom: 2px solid var(--gold); letter-spacing: 2px;
+        }
+        .cinfo-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+        .cinfo-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 17px; flex-shrink: 0;
+        }
+        .cinfo-txt strong { display: block; font-size: 14px; color: #111; margin-bottom: 3px; }
+        .cinfo-txt span { font-size: 13px; color: #777; line-height: 1.5; }
+        .big-phone {
+            background: linear-gradient(135deg, #111, #222);
+            border-radius: 16px; padding: 28px; text-align: center; margin-top: 20px;
+        }
+        .big-phone p { color: #666; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; }
+        .big-phone a { display: block; font-size: 30px; font-weight: 900; color: var(--gold); text-decoration: none; letter-spacing: 3px; }
+        .big-phone a:hover { color: var(--gold-light); }
+        .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .fgroup { margin-bottom: 14px; }
+        .fgroup input, .fgroup textarea, .fgroup select {
+            width: 100%; padding: 12px 15px; border: 2px solid #eee;
+            border-radius: 10px; font-size: 13px; font-family: inherit;
+            outline: none; transition: border-color 0.3s; background: #fafafa;
+        }
+        .fgroup input:focus, .fgroup textarea:focus, .fgroup select:focus { border-color: var(--gold-dark); background: white; }
+        .fgroup textarea { height: 95px; resize: vertical; }
+        .sub-btn {
+            width: 100%; background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            color: white; border: none; padding: 13px; border-radius: 10px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            letter-spacing: 2px; transition: all 0.3s; font-family: inherit;
+        }
+        .sub-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(196,154,40,0.4); }
+
+        /* 底部 */
+        footer { background: #080808; padding: 45px 30px 25px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto 35px; }
+        .footer-brand p { font-size: 13px; color: #444; line-height: 1.8; margin-top: 15px; }
+        .footer-col h4 { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #1a1a1a; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 9px; }
+        .footer-col ul li a { color: #444; text-decoration: none; font-size: 13px; transition: color 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid #111; padding-top: 20px; text-align: center; font-size: 12px; color: #333; max-width: 1000px; margin: 0 auto; }
+
+        .back-top {
+            position: fixed; bottom: 28px; right: 28px; width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 20px; text-decoration: none;
+            box-shadow: 0 5px 20px rgba(196,154,40,0.4); transition: all 0.3s; z-index: 900;
+        }
+        .back-top:hover { transform: translateY(-5px); }
+        .toast {
+            position: fixed; bottom: 90px; right: 28px;
+            background: #1a1a1a; color: var(--gold); border: 1px solid var(--gold-dark);
+            padding: 12px 22px; border-radius: 10px; font-size: 13px; letter-spacing: 1px;
+            z-index: 9000; opacity: 0; transform: translateY(10px);
+            transition: all 0.3s; pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        .fade-in { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: #111; border-top: 1px solid #222; padding: 15px 20px; z-index: 999; }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a { display: block; color: #ccc; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #1a1a1a; font-size: 14px; letter-spacing: 1px; }
+        .mobile-menu a:hover { color: var(--gold); }
+
         @media (max-width: 1024px) {
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .service-grid { grid-template-columns: repeat(2,1fr); }
+            .main-cats { grid-template-columns: 1fr; }
+            .lb-arrow.left { left: -10px; }
+            .lb-arrow.right { right: -10px; }
         }
-
         @media (max-width: 768px) {
             header { padding: 0 20px; }
-
-            .nav-links { display: none; }
-            .nav-phone { font-size: 12px; }
-
-            .hero h1 { letter-spacing: 4px; }
-
-            .hero-stats { gap: 30px; }
-
-            .cat-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cat-card { height: 200px; }
-
-            .products-section { padding: 50px 20px; }
-
-            .feature-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ===== 淡入动画 ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            .nav-menu { display: none; }
+            .hamburger { display: flex; }
+            .contact-wrap { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .frow { grid-template-columns: 1fr; }
+            .section { padding: 55px 20px; }
+            .img-grid { grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 12px; }
+            .service-grid { grid-template-columns: 1fr 1fr; }
+            .lb-stage { width: 95vw; height: 60vh; }
+            .lb-arrow { width: 38px; height: 38px; font-size: 16px; }
+            .lb-arrow.left { left: 5px; }
+            .lb-arrow.right { right: 5px; }
         }
     </style>
 </head>
 <body>
 
-<!-- 顶部公告 -->
-<div class="top-bar">
-    🎉 开业特惠 · 全场瓷砖8折起 · 窗帘免费上门测量 · 卫浴套餐立减500元
-</div>
+<div class="topbar">🎉 欧尚建材瓷砖批发 · 亮光 · 柔光 · 木纹 · 浴室柜 · 窗帘 · 欢迎到店选购</div>
 
-<!-- 导航栏 -->
 <header>
     <nav>
-        <a href="#" class="logo">
-            <div class="logo-icon">欧</div>
-            <div class="logo-text">
+        <a href="#home" class="logo">
+            <div class="logo-box">欧</div>
+            <div class="logo-txt">
                 <span>欧尚建材</span>
-                <span>OUSHANG BUILDING MATERIALS</span>
+                <span>瓷砖 · 浴室柜 · 窗帘</span>
             </div>
         </a>
-        <ul class="nav-links">
+        <ul class="nav-menu">
             <li><a href="#home" class="active">首页</a></li>
-            <li><a href="#tiles">瓷砖</a></li>
-            <li><a href="#curtains">窗帘</a></li>
-            <li><a href="#bathroom">卫浴</a></li>
+            <li>
+                <a href="#tiles">瓷砖系列 ▾</a>
+                <div class="dropdown">
+                    <a href="#bright">亮光系列</a>
+                    <a href="#soft">柔光系列</a>
+                    <a href="#wood">木纹系列</a>
+                </div>
+            </li>
+            <li><a href="#bath">浴室柜</a></li>
+            <li><a href="#curtain">窗帘</a></li>
             <li><a href="#contact">联系我们</a></li>
         </ul>
-        <div class="nav-phone">
-            📞 &nbsp;<strong style="color:white">400-888-XXXX</strong>
+        <div style="display:flex;align-items:center;gap:15px">
+            <div class="nav-phone">📞 18959938509</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </nav>
 </header>
 
-<!-- 英雄区域 -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()">🏠 首页</a>
+    <a href="#bright" onclick="toggleMenu()">✨ 亮光系列</a>
+    <a href="#soft" onclick="toggleMenu()">🌙 柔光系列</a>
+    <a href="#wood" onclick="toggleMenu()">🪵 木纹系列</a>
+    <a href="#bath" onclick="toggleMenu()">🚿 浴室柜</a>
+    <a href="#curtain" onclick="toggleMenu()">🪟 窗帘</a>
+    <a href="#contact" onclick="toggleMenu()">📞 联系我们</a>
+</div>
+
 <section class="hero" id="home">
-    <div class="hero-pattern"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
     <div class="hero-content">
-        <div class="hero-badge">✦ 品质家居 · 一站购齐 ✦</div>
-        <h1>欧尚<span>建材</span></h1>
-        <p class="hero-subtitle">OUSHANG BUILDING MATERIALS · 专注品质 · 成就美家</p>
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="stat-number">15+</span>
-                <span class="stat-label">年品牌积淀</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">3000+</span>
-                <span class="stat-label">款式可选</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">10000+</span>
-                <span class="stat-label">客户信赖</span>
-            </div>
+        <div class="hero-tag">✦ 泉州城厢 · 祥发建材城 ✦</div>
+        <h1>欧尚<em>建材</em></h1>
+        <p class="hero-sub">瓷砖批发 · 浴室柜 · 窗帘 · 品质保障</p>
+        <div class="hero-cats">
+            <a href="#bright" class="hero-cat">✨ 亮光系列</a>
+            <a href="#soft" class="hero-cat">🌙 柔光系列</a>
+            <a href="#wood" class="hero-cat">🪵 木纹系列</a>
+            <a href="#bath" class="hero-cat">🚿 浴室柜</a>
+            <a href="#curtain" class="hero-cat">🪟 窗帘</a>
         </div>
         <div class="hero-btns">
-            <a href="#tiles" class="btn-primary">浏览产品</a>
-            <a href="#contact" class="btn-outline">预约咨询</a>
+            <a href="#tiles" class="btn-gold">浏览产品</a>
+            <a href="#contact" class="btn-border">立即咨询</a>
         </div>
     </div>
 </section>
 
-<!-- 滚动横幅 -->
-<div class="banner">
-    <div class="banner-track">
-        <span class="banner-item"><span>✦</span>瓷砖 · 大理石纹理</span>
-        <span class="banner-item"><span>✦</span>窗帘 · 免费上门测量</span>
-        <span class="banner-item"><span>✦</span>卫浴 · 整体方案设计</span>
-        <span class="banner-item"><span>✦</span>专业施工团队</span>
-        <span class="banner-item"><span>✦</span>5年质量保障</span>
-        <span class="banner-item"><span>✦</span>瓷砖 · 大理石纹理</span>
-        <span class="banner-item"><span>✦</span>窗帘 · 免费上门测量</span>
-        <span class="banner-item"><span>✦</span>卫浴 · 整体方案设计</span>
-        <span class="banner-item"><span>✦</span>专业施工团队</span>
-        <span class="banner-item"><span>✦</span>5年质量保障</span>
+<div class="marquee-bar">
+    <div class="marquee-track">
+        <span class="marquee-item">✦ 亮光瓷砖系列</span>
+        <span class="marquee-item">✦ 柔光瓷砖系列</span>
+        <span class="marquee-item">✦ 木纹瓷砖系列</span>
+        <span class="marquee-item">✦ 浴室柜</span>
+        <span class="marquee-item">✦ 窗帘定制</span>
+        <span class="marquee-item">✦ 批发零售</span>
+        <span class="marquee-item">✦ 免费上门测量</span>
+        <span class="marquee-item">✦ 亮光瓷砖系列</span>
+        <span class="marquee-item">✦ 柔光瓷砖系列</span>
+        <span class="marquee-item">✦ 木纹瓷砖系列</span>
+        <span class="marquee-item">✦ 浴室柜</span>
+        <span class="marquee-item">✦ 窗帘定制</span>
+        <span class="marquee-item">✦ 批发零售</span>
+        <span class="marquee-item">✦ 免费上门测量</span>
     </div>
 </div>
 
-<!-- 分类导航 -->
-<section class="categories" id="category">
-    <div class="section-header fade-in">
-        <div class="section-tag">PRODUCT CATEGORY</div>
-        <h2 class="section-title">产品分类</h2>
-        <p class="section-desc">瓷砖 · 窗帘 · 卫浴 · 一站式家居建材采购</p>
+<!-- 大分类 -->
+<section class="section" id="category">
+    <div class="sec-head fade-in">
+        <div class="sec-tag">PRODUCT CATEGORY</div>
+        <h2 class="sec-title">产品分类</h2>
+        <p class="sec-desc">点击分类快速浏览产品</p>
     </div>
-    <div class="cat-grid">
-        <a href="#tiles" class="cat-card tiles fade-in">
-            <div class="cat-bg">🏠</div>
-            <div class="cat-info">
-                <span class="cat-name">瓷砖系列</span>
-                <span class="cat-count">大理石 / 木纹 / 仿古 / 通体砖</span>
-                <div class="cat-arrow">→</div>
+    <div class="main-cats">
+        <a href="#tiles" class="main-cat-card fade-in">
+            <div class="mcc-img mcc-tile">🏠</div>
+            <div class="mcc-info">
+                <div class="mcc-name">瓷砖系列</div>
+                <div class="mcc-sub">亮光 · 柔光 · 木纹</div>
+                <div class="mcc-arrow">→</div>
             </div>
         </a>
-        <a href="#curtains" class="cat-card curtain fade-in">
-            <div class="cat-bg">🪟</div>
-            <div class="cat-info">
-                <span class="cat-name">窗帘系列</span>
-                <span class="cat-count">遮光 / 纱帘 / 百叶 / 定制</span>
-                <div class="cat-arrow">→</div>
+        <a href="#bath" class="main-cat-card fade-in">
+            <div class="mcc-img mcc-bath">🚿</div>
+            <div class="mcc-info">
+                <div class="mcc-name">浴室柜</div>
+                <div class="mcc-sub">多种风格可选</div>
+                <div class="mcc-arrow">→</div>
             </div>
         </a>
-        <a href="#bathroom" class="cat-card bath fade-in">
-            <div class="cat-bg">🚿</div>
-            <div class="cat-info">
-                <span class="cat-name">卫浴系列</span>
-                <span class="cat-count">淋浴房 / 马桶 / 浴缸 / 洁具</span>
-                <div class="cat-arrow">→</div>
+        <a href="#curtain" class="main-cat-card fade-in">
+            <div class="mcc-img mcc-curtain">🪟</div>
+            <div class="mcc-info">
+                <div class="mcc-name">窗帘</div>
+                <div class="mcc-sub">免费上门测量安装</div>
+                <div class="mcc-arrow">→</div>
             </div>
         </a>
     </div>
 </section>
 
-<!-- ====== 瓷砖区域 ====== -->
-<section class="products-section" id="tiles">
-   <div class="product-grid">
-    <div class="product-card fade-in">
-        <span class="product-badge">热销</span>
-        <div class="product-img tile-marble"></div>
-        <div class="product-info">
-            <div class="product-name">卡拉拉白大理石纹</div>
-            <div class="product-desc">意大利风格纹理，亮光抛釉工艺，适合客厅及大空间</div>
-        </div>
+<!-- ===== 瓷砖 ===== -->
+<section class="section alt" id="tiles">
+    <div class="sec-head fade-in">
+        <div class="sec-tag">TILES COLLECTION</div>
+        <h2 class="sec-title">瓷砖系列</h2>
+        <p class="sec-desc">亮光 · 柔光 · 木纹，三大系列</p>
+    </div>
+    <div class="sub-tabs fade-in">
+        <button class="sub-tab active" onclick="switchTab(this,'all')">全部</button>
+        <button class="sub-tab" onclick="switchTab(this,'bright')">✨ 亮光系列</button>
+        <button class="sub-tab" onclick="switchTab(this,'soft')">🌙 柔光系列</button>
+        <button class="sub-tab" onclick="switchTab(this,'wood')">🪵 木纹系列</button>
     </div>
 
-    <div class="product-card fade-in">
-        <span class="product-badge">新品</span>
-        <div class="product-img tile-wood"></div>
-        <div class="product-info">
-            <div class="product-name">北美橡木纹瓷砖</div>
-            <div class="product-desc">仿实木纹理，防滑耐磨，脚感舒适，适合卧室走廊</div>
-        </div>
-    </div>
+    <div id="bright" style="scroll-margin-top:80px"></div>
 
-    <div class="product-card fade-in">
-        <div class="product-img tile-stone"></div>
-        <div class="product-info">
-            <div class="product-name">灰色通体大板砖</div>
-            <div class="product-desc">现代简约风格，哑光面处理，超大规格彰显大气</div>
+    <div class="img-grid" id="tilesGrid">
+        <!-- 亮光 11张 -->
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="0" onclick="openLb('tiles',0)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/zTpByfgP/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
         </div>
-    </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="1" onclick="openLb('tiles',1)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/rfMghTHG/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="2" onclick="openLb('tiles',2)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/Tz4vnsJ/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="3" onclick="openLb('tiles',3)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/97rtmcY/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="4" onclick="openLb('tiles',4)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/RkhMzTm9/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="5" onclick="openLb('tiles',5)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/rRzLhmNg/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="6" onclick="openLb('tiles',6)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/WvwZfStp/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="7" onclick="openLb('tiles',7)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/hSJhX8B/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="8" onclick="openLb('tiles',8)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/Dg6gLWQT/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="9" onclick="openLb('tiles',9)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/1GhDZ4Kp/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="bright" data-section="tiles" data-idx="10" onclick="openLb('tiles',10)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/NnsFYNyF/image.jpg" alt="亮光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>亮光系列</span></div>
+                <div class="img-badge">亮光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
 
-    <div class="product-card fade-in">
-        <span class="product-badge">特价</span>
-        <div class="product-img tile-mosaic"></div>
-        <div class="product-info">
-            <div class="product-name">复古仿古马赛克</div>
-            <div class="product-desc">地中海风格，色泽丰富，适合背景墙及卫生间装饰</div>
-        </div>
-    </div>
+        <!-- 柔光锚点 -->
+        <div id="soft" style="scroll-margin-top:80px;grid-column:1/-1;height:0"></div>
 
-    <div class="product-card fade-in">
-        <div class="product-img tile-white"></div>
-        <div class="product-info">
-            <div class="product-name">纯白亮光釉面砖</div>
-            <div class="product-desc">高光泽度釉面，洁净明亮，适合厨卫空间使用</div>
+        <!-- 柔光 9张 -->
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="11" onclick="openLb('tiles',11)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/nMjFzDg1/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
         </div>
-    </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="12" onclick="openLb('tiles',12)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/2mtgG9N/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="13" onclick="openLb('tiles',13)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/nqvnXcyF/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="14" onclick="openLb('tiles',14)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/DHZDmk8y/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="15" onclick="openLb('tiles',15)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/0j7LS4hk/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="16" onclick="openLb('tiles',16)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/spNPtN0J/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="17" onclick="openLb('tiles',17)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/zH25FGd6/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="18" onclick="openLb('tiles',18)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/6R1s5pkH/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="soft" data-section="tiles" data-idx="19" onclick="openLb('tiles',19)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/vxddDsqb/image.jpg" alt="柔光系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🏠</div><span>柔光系列</span></div>
+                <div class="img-badge" style="background:#6c757d">柔光</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
 
-    <div class="product-card fade-in">
-        <span class="product-badge">爆款</span>
-        <div class="product-img tile-black"></div>
-        <div class="product-info">
-            <div class="product-name">黑金通体抛光砖</div>
-            <div class="product-desc">高端轻奢风格，金色纹理点缀，适合玄关客厅</div>
+        <!-- 木纹锚点 -->
+        <div id="wood" style="scroll-margin-top:80px;grid-column:1/-1;height:0"></div>
+
+        <!-- 木纹 2张 -->
+        <div class="img-card fade-in" data-cat="wood" data-section="tiles" data-idx="20" onclick="openLb('tiles',20)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/4RdWGVtZ/image.jpg" alt="木纹系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪵</div><span>木纹系列</span></div>
+                <div class="img-badge" style="background:#7a5030">木纹</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" data-cat="wood" data-section="tiles" data-idx="21" onclick="openLb('tiles',21)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/KpZX1wVm/image.jpg" alt="木纹系列" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪵</div><span>木纹系列</span></div>
+                <div class="img-badge" style="background:#7a5030">木纹</div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
         </div>
     </div>
-</div>
 </section>
 
-<!-- ====== 窗帘区域 ====== -->
-<section class="products-section alt" id="curtains">
-    <div class="product-grid">
-    <div class="product-card fade-in">
-        <span class="product-badge">热销</span>
-        <div class="product-img curtain-linen"></div>
-        <div class="product-info">
-            <div class="product-name">亚麻原色窗帘</div>
-            <div class="product-desc">天然亚麻面料，透气自然，北欧简约风格首选</div>
+<!-- ===== 浴室柜 ===== -->
+<section class="section" id="bath">
+    <div class="sec-head fade-in">
+        <div class="sec-tag">BATHROOM CABINET</div>
+        <h2 class="sec-title">浴室柜</h2>
+        <p class="sec-desc">多种风格，品质保障</p>
+    </div>
+    <div class="img-grid">
+        <div class="img-card fade-in" onclick="openLb('bath',0)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/gZLdBwPt/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',1)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/3ynsWs88/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',2)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/r2QZr1xn/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',3)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/rGL8fT2d/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',4)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/rYSykBd/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',5)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/bRz41FVV/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',6)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/BK2R30dg/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',7)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/vxCQsTXq/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',8)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/zV9Skzhr/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('bath',9)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/d08ChWHB/image.jpg" alt="浴室柜" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🚿</div><span>浴室柜</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
         </div>
     </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">新品</span>
-        <div class="product-img curtain-velvet"></div>
-        <div class="product-info">
-            <div class="product-name">丝绒重磅遮光帘</div>
-            <div class="product-desc">100%遮光，隔音保温，高品质丝绒面料，奢华质感</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <div class="product-img curtain-sheer"></div>
-        <div class="product-info">
-            <div class="product-name">轻柔雪纺纱帘</div>
-            <div class="product-desc">薄透柔美，光线柔和，配合遮光帘使用效果更佳</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">爆款</span>
-        <div class="product-img curtain-blackout"></div>
-        <div class="product-info">
-            <div class="product-name">深空遮光卧室帘</div>
-            <div class="product-desc">加厚三层复合面料，遮光率99%，睡眠护眼必备</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <div class="product-img curtain-stripe"></div>
-        <div class="product-info">
-            <div class="product-name">海军条纹系列</div>
-            <div class="product-desc">经典蓝白条纹，地中海风情，书房客厅均适用</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">特价</span>
-        <div class="product-img curtain-jacquard"></div>
-        <div class="product-info">
-            <div class="product-name">金色提花豪华帘</div>
-            <div class="product-desc">立体提花工艺，金丝点缀，欧式古典奢华风格</div>
-        </div>
-    </div>
-</div>
 </section>
 
-<!-- ====== 卫浴区域 ====== -->
-<section class="products-section" id="bathroom">
-    <div class="product-grid">
-    <div class="product-card fade-in">
-        <span class="product-badge">套装</span>
-        <div class="product-img bath-modern"><span>🚿</span></div>
-        <div class="product-info">
-            <div class="product-name">极简现代淋浴房</div>
-            <div class="product-desc">钢化玻璃，无框设计，防爆防滑，简洁大方</div>
+<!-- ===== 窗帘 ===== -->
+<section class="section alt" id="curtain">
+    <div class="sec-head fade-in">
+        <div class="sec-tag">CURTAIN COLLECTION</div>
+        <h2 class="sec-title">窗帘系列</h2>
+        <p class="sec-desc">精选面料 · 免费上门测量 · 专业安装</p>
+    </div>
+    <div class="img-grid">
+        <div class="img-card fade-in" onclick="openLb('curtain',0)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/3yVWzgbb/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',1)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/HLP8wg7Q/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',2)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/4RkqYKbx/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',3)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/6JmT5mbh/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',4)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/qPw2td0/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',5)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/7x9X84wn/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',6)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/xqjPzPqS/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',7)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/9m1D8W2p/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',8)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/TD0gcCNc/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
+        </div>
+        <div class="img-card fade-in" onclick="openLb('curtain',9)">
+            <div class="img-wrap">
+                <img src="https://i.ibb.co/B23wCh65/image.jpg" alt="窗帘" loading="lazy">
+                <div class="img-placeholder" style="display:none"><div class="ph-icon">🪟</div><span>窗帘系列</span></div>
+                <div class="img-overlay"><span>查看大图</span></div>
+            </div>
         </div>
     </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">热销</span>
-        <div class="product-img bath-classical"><span>🛁</span></div>
-        <div class="product-info">
-            <div class="product-name">欧式独立浴缸</div>
-            <div class="product-desc">铸铁材质，保温性强，爪脚设计，浪漫欧式风情</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">新品</span>
-        <div class="product-img bath-smart"><span>🪥</span></div>
-        <div class="product-info">
-            <div class="product-name">智能感应马桶</div>
-            <div class="product-desc">自动感应冲洗，温水清洗，坐垫加热，五星级享受</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <div class="product-img bath-nature"><span>🌿</span></div>
-        <div class="product-info">
-            <div class="product-name">原木台盆柜组合</div>
-            <div class="product-desc">实木防水处理，陶瓷台盆，自然质朴，禅意生活</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">爆款</span>
-        <div class="product-img bath-luxury"><span>✨</span></div>
-        <div class="product-info">
-            <div class="product-name">黑金轻奢全套卫浴</div>
-            <div class="product-desc">哑黑拉丝金配色，高端定制，全套配件整体安装</div>
-        </div>
-    </div>
-
-    <div class="product-card fade-in">
-        <span class="product-badge">特价</span>
-        <div class="product-img bath-minimal"><span>🪞</span></div>
-        <div class="product-info">
-            <div class="product-name">智能浴室镜柜</div>
-            <div class="product-desc">LED灯光，防雾功能，内置收纳，触控调光</div>
-        </div>
-    </div>
-</div>
 </section>
 
-<!-- 联系我们 -->
-<section class="contact" id="contact">
-    <div class="section-header fade-in">
-        <div class="section-tag">CONTACT US</div>
-        <h2 class="section-title">联系我们</h2>
-        <p class="section-desc">欢迎到访门店，或在线预约咨询，我们竭诚为您服务</p>
+<!-- 服务 -->
+<section class="section dark">
+    <div class="sec-head fade-in">
+        <div class="sec-tag">OUR SERVICE</div>
+        <h2 class="sec-title">服务保障</h2>
     </div>
-    <div class="contact-grid">
-        <div class="contact-info fade-in">
+    <div class="service-grid">
+        <div class="svc-card fade-in">
+            <div class="svc-icon">🚗</div>
+            <div class="svc-title">免费上门测量</div>
+            <div class="svc-desc">专业人员上门量尺，窗帘浴室柜均可预约</div>
+        </div>
+        <div class="svc-card fade-in">
+            <div class="svc-icon">🔨</div>
+            <div class="svc-title">专业施工安装</div>
+            <div class="svc-desc">经验丰富团队，精细铺贴，保证品质</div>
+        </div>
+        <div class="svc-card fade-in">
+            <div class="svc-icon">🛡️</div>
+            <div class="svc-title">质量保障</div>
+            <div class="svc-desc">所有产品均有质保，出现问题免费处理</div>
+        </div>
+        <div class="svc-card fade-in">
+            <div class="svc-icon">💰</div>
+            <div class="svc-title">批发优惠价</div>
+            <div class="svc-desc">厂家直供，批发零售均有优惠，量大价更优</div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系 -->
+<section class="section" id="contact">
+    <div class="sec-head fade-in">
+        <div class="sec-tag">CONTACT US</div>
+        <h2 class="sec-title">联系我们</h2>
+        <p class="sec-desc">欢迎到店选购，或致电咨询</p>
+    </div>
+    <div class="contact-wrap">
+        <div class="contact-block fade-in">
             <h3>门店信息</h3>
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div class="contact-text">
+            <div class="cinfo-item">
+                <div class="cinfo-icon">📍</div>
+                <div class="cinfo-txt">
                     <strong>门店地址</strong>
-                    <span>XX市XX区建材城A区 欧尚建材旗舰店</span>
+                    <span>泉州市城厢镇仙宛村<br>祥发建材城（欧尚建材瓷砖批发）</span>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <div class="contact-text">
+            <div class="cinfo-item">
+                <div class="cinfo-icon">📞</div>
+                <div class="cinfo-txt">
                     <strong>联系电话</strong>
-                    <span>400-888-XXXX &nbsp;｜&nbsp; 138-XXXX-XXXX</span>
+                    <span>18959938509</span>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">🕐</div>
-                <div class="contact-text">
+            <div class="cinfo-item">
+                <div class="cinfo-icon">🕐</div>
+                <div class="cinfo-txt">
                     <strong>营业时间</strong>
-                    <span>每天 09:00 - 20:00（节假日不休）</span>
+                    <span>每天 08:00 - 20:00</span>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">💬</div>
-                <div class="contact-text">
-                    <strong>微信客服</strong>
-                    <span>微信扫码咨询，24小时在线回复</span>
+            <div class="cinfo-item">
+                <div class="cinfo-icon">🏪</div>
+                <div class="cinfo-txt">
+                    <strong>经营品类</strong>
+                    <span>瓷砖批发（亮光·柔光·木纹）<br>浴室柜 · 窗帘</span>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">🚗</div>
-                <div class="contact-text">
-                    <strong>免费服务</strong>
-                    <span>市区内免费上门测量 · 满额免费配送</span>
-                </div>
+            <div class="big-phone">
+                <p>📞 点击直接拨打</p>
+                <a href="tel:18959938509">189 5993 8509</a>
             </div>
         </div>
         <div class="contact-form fade-in">
-            <h3>在线咨询</h3>
+            <h3>在线留言</h3>
             <form onsubmit="submitForm(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" placeholder="您的姓名 *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="联系电话 *" required>
-                    </div>
+                <div class="frow">
+                    <div class="fgroup"><input type="text" placeholder="您的姓名 *" required></div>
+                    <div class="fgroup"><input type="tel" placeholder="联系电话 *" required></div>
                 </div>
-                <div class="form-group">
+                <div class="fgroup">
                     <select>
                         <option value="">请选择咨询类别</option>
-                        <option value="tiles">瓷砖系列</option>
-                        <option value="curtains">窗帘系列</option>
-                        <option value="bathroom">卫浴系列</option>
-                        <option value="design">整体设计方案</option>
-                        <option value="other">其他</option>
+                        <option>亮光瓷砖</option>
+                        <option>柔光瓷砖</option>
+                        <option>木纹瓷砖</option>
+                        <option>浴室柜</option>
+                        <option>窗帘</option>
+                        <option>其他</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="请描述您的需求，例如：户型面积、风格偏好、预算范围等..."></textarea>
+                <div class="fgroup">
+                    <textarea placeholder="请描述您的需求..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">📩 立即提交咨询</button>
+                <button type="submit" class="sub-btn">📩 提交留言</button>
             </form>
         </div>
     </div>
 </section>
 
-<!-- 底部 -->
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <div class="logo" style="text-decoration:none;display:flex;align-items:center;gap:12px">
-                <div class="logo-icon">欧</div>
-                <div class="logo-text">
-                    <span>欧尚建材</span>
-                    <span style="color:#555;font-size:11px;letter-spacing:3px">OUSHANG MATERIALS</span>
+            <div style="display:flex;align-items:center;gap:10px">
+                <div class="logo-box" style="width:40px;height:40px;font-size:16px">欧</div>
+                <div>
+                    <div style="color:var(--gold);font-size:18px;font-weight:900;letter-spacing:3px">欧尚建材</div>
+                    <div style="color:#333;font-size:11px;letter-spacing:2px">瓷砖批发 · 浴室柜 · 窗帘</div>
                 </div>
             </div>
-            <p>欧尚建材成立十余年，专注为广大家庭提供高品质的瓷砖、窗帘及卫浴产品。我们坚持品质为先，服务至上，致力于让每一个家庭都拥有美好的居住体验。</p>
+            <p>泉州市城厢镇仙宛村祥发建材城<br>电话：18959938509</p>
         </div>
         <div class="footer-col">
             <h4>产品系列</h4>
             <ul>
-                <li><a href="#tiles">大理石纹瓷砖</a></li>
-                <li><a href="#tiles">木纹瓷砖</a></li>
-                <li><a href="#tiles">仿古砖</a></li>
-                <li><a href="#curtains">遮光窗帘</a></li>
-                <li><a href="#curtains">纱帘系列</a></li>
-                <li><a href="#bathroom">卫浴套装</a></li>
+                <li><a href="#bright">✨ 亮光瓷砖</a></li>
+                <li><a href="#soft">🌙 柔光瓷砖</a></li>
+                <li><a href="#wood">🪵 木纹瓷砖</a></li>
+                <li><a href="#bath">🚿 浴室柜</a></li>
+                <li><a href="#curtain">🪟 窗帘</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h4>服务支持</h4>
+            <h4>联系我们</h4>
             <ul>
-                <li><a href="#">上门测量</a></li>
-                <li><a href="#">专业施工</a></li>
-                <li><a href="#">设计方案</a></li>
-                <li><a href="#">售后保障</a></li>
-                <li><a href="#">产品保修</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>关于我们</h4>
-            <ul>
-                <li><a href="#">品牌故事</a></li>
-                <li><a href="#">荣誉资质</a></li>
-                <li><a href="#">合作品牌</a></li>
-                <li><a href="#contact">联系我们</a></li>
-                <li><a href="#">加盟合作</a></li>
+                <li><a href="tel:18959938509">📞 18959938509</a></li>
+                <li><a href="#contact">📝 在线留言</a></li>
+                <li><a href="#contact">📍 门店地址</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2024 <span>欧尚建材</span> 版权所有 &nbsp;|&nbsp; 品质家居 · 成就美好生活</p>
+        © 2024 <span style="color:var(--gold)">欧尚建材</span> · 泉州市城厢镇仙宛村祥发建材城
     </div>
 </footer>
 
-<!-- 返回顶部 -->
 <a href="#home" class="back-top">↑</a>
+<div class="toast" id="toast">✅ 留言提交成功，我们会尽快联系您！</div>
 
-<!-- 模态框 -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-    <div class="modal">
-        <div class="modal-icon" id="modalIcon">🏠</div>
-        <div class="modal-title" id="modalTitle">产品名称</div>
-        <div class="modal-desc" id="modalDesc">产品描述</div>
-        <p style="font-size:13px;color:#aaa;margin-bottom:20px">如需了解详情或预约看样，请致电我们或在线咨询</p>
-        <div style="background:#f8f6f2;border-radius:12px;padding:15px;margin-bottom:20px;font-size:14px;color:#555;">
-            📞 <strong style="color:#8B6914">400-888-XXXX</strong> &nbsp;｜&nbsp; 周一至周日 09:00-20:00
+<!-- ===== 灯箱 - 全新结构 ===== -->
+<div class="lightbox" id="lightbox">
+    <div class="lb-wrapper">
+        <div class="lb-stage" id="lbStage">
+            <div class="lb-spinner" id="lbSpinner">
+                <div class="spin"></div>
+                <span style="color:#555;font-size:13px">加载中...</span>
+            </div>
         </div>
-        <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('show')">
-            关闭
-        </button>
+        <button class="lb-close" id="lbClose" onclick="closeLb()">✕</button>
+        <button class="lb-arrow left" onclick="lbPrev()">‹</button>
+        <button class="lb-arrow right" onclick="lbNext()">›</button>
+        <div class="lb-info">
+            <span class="lb-title" id="lbTitle"></span>
+            <span class="lb-counter" id="lbCounter"></span>
+        </div>
     </div>
 </div>
 
 <script>
-    // ===== 滚动淡入动画 =====
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+// ===== 图片数据 =====
+const IMGS = {
+    tiles: [
+        { src: 'https://i.ibb.co/zTpByfgP/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/rfMghTHG/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/Tz4vnsJ/image.jpg',   label: '亮光系列' },
+        { src: 'https://i.ibb.co/97rtmcY/image.jpg',   label: '亮光系列' },
+        { src: 'https://i.ibb.co/RkhMzTm9/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/rRzLhmNg/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/WvwZfStp/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/hSJhX8B/image.jpg',   label: '亮光系列' },
+        { src: 'https://i.ibb.co/Dg6gLWQT/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/1GhDZ4Kp/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/NnsFYNyF/image.jpg',  label: '亮光系列' },
+        { src: 'https://i.ibb.co/nMjFzDg1/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/2mtgG9N/image.jpg',   label: '柔光系列' },
+        { src: 'https://i.ibb.co/nqvnXcyF/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/DHZDmk8y/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/0j7LS4hk/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/spNPtN0J/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/zH25FGd6/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/6R1s5pkH/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/vxddDsqb/image.jpg',  label: '柔光系列' },
+        { src: 'https://i.ibb.co/4RdWGVtZ/image.jpg',  label: '木纹系列' },
+        { src: 'https://i.ibb.co/KpZX1wVm/image.jpg',  label: '木纹系列' },
+    ],
+    bath: [
+        { src: 'https://i.ibb.co/gZLdBwPt/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/3ynsWs88/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/r2QZr1xn/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/rGL8fT2d/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/rYSykBd/image.jpg',   label: '浴室柜' },
+        { src: 'https://i.ibb.co/bRz41FVV/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/BK2R30dg/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/vxCQsTXq/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/zV9Skzhr/image.jpg',  label: '浴室柜' },
+        { src: 'https://i.ibb.co/d08ChWHB/image.jpg',  label: '浴室柜' },
+    ],
+    curtain: [
+        { src: 'https://i.ibb.co/3yVWzgbb/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/HLP8wg7Q/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/4RkqYKbx/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/6JmT5mbh/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/qPw2td0/image.jpg',   label: '窗帘系列' },
+        { src: 'https://i.ibb.co/7x9X84wn/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/xqjPzPqS/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/9m1D8W2p/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/TD0gcCNc/image.jpg',  label: '窗帘系列' },
+        { src: 'https://i.ibb.co/B23wCh65/image.jpg',  label: '窗帘系列' },
+    ]
+};
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ===== 导航高亮 =====
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            if (scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
+// ===== 图片错误处理 =====
+document.querySelectorAll('.img-wrap img').forEach(img => {
+    img.addEventListener('error', function() {
+        this.style.display = 'none';
+        const ph = this.nextElementSibling;
+        if (ph && ph.classList.contains('img-placeholder')) {
+            ph.style.display = 'flex';
+        }
     });
+});
 
-    // ===== 筛选按钮 =====
-    function filterProducts(btn) {
-        const parent = btn.closest('.products-section') || btn.closest('section');
-        parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-    }
+// ===== 灯箱逻辑 =====
+let lbCat = 'tiles';
+let lbIdx = 0;
+let lbImg = null;
 
-    // ===== 产品模态框 =====
-    const icons = {
-        '瓷砖': '🏠', '窗帘': '🪟', '马桶': '🪥',
-        '浴缸': '🛁', '淋浴': '🚿', '镜': '🪞',
-        '台盆': '🌿', '卫浴': '✨'
+function openLb(cat, idx) {
+    lbCat = cat;
+    lbIdx = idx;
+    document.getElementById('lightbox').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    loadLbImg();
+}
+
+function loadLbImg() {
+    const stage = document.getElementById('lbStage');
+    const spinner = document.getElementById('lbSpinner');
+    const list = IMGS[lbCat];
+    const item = list[lbIdx];
+
+    // 更新标题和计数
+    document.getElementById('lbTitle').textContent = item.label;
+    document.getElementById('lbCounter').textContent = (lbIdx + 1) + ' / ' + list.length;
+
+    // 移除旧图片
+    if (lbImg) { lbImg.remove(); lbImg = null; }
+
+    // 显示 spinner
+    spinner.style.display = 'flex';
+
+    // 创建新图片
+    const img = new Image();
+    img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;opacity:0;transition:opacity 0.3s';
+    img.alt = item.label;
+
+    img.onload = function() {
+        spinner.style.display = 'none';
+        stage.appendChild(img);
+        lbImg = img;
+        requestAnimationFrame(() => { img.style.opacity = '1'; });
     };
 
-    function showModal(name, desc) {
-        let icon = '🏠';
-        for (const key in icons) {
-            if (name.includes(key)) { icon = icons[key]; break; }
-        }
-        document.getElementById('modalIcon').textContent = icon;
-        document.getElementById('modalTitle').textContent = name;
-        document.getElementById('modalDesc').textContent = desc;
-        document.getElementById('modalOverlay').classList.add('show');
-    }
+    img.onerror = function() {
+        spinner.innerHTML = '<span style="font-size:40px">😔</span><span style="color:#555;font-size:13px">图片暂时无法显示</span>';
+    };
 
-    function closeModal(e) {
-        if (e.target === document.getElementById('modalOverlay')) {
-            document.getElementById('modalOverlay').classList.remove('show');
-        }
-    }
+    img.src = item.src;
+}
 
-    // ===== 表单提交 =====
-    function submitForm(e) {
-        e.preventDefault();
-        document.getElementById('modalIcon').textContent = '✅';
-        document.getElementById('modalTitle').textContent = '咨询提交成功！';
-        document.getElementById('modalDesc').textContent = '感谢您的咨询，我们的专业顾问将在24小时内联系您，请保持电话畅通。';
-        document.getElementById('modalOverlay').classList.add('show');
-        e.target.reset();
-    }
+function lbPrev() {
+    lbIdx = (lbIdx - 1 + IMGS[lbCat].length) % IMGS[lbCat].length;
+    loadLbImg();
+}
 
-    // ===== ESC关闭模态框 =====
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            document.getElementById('modalOverlay').classList.remove('show');
+function lbNext() {
+    lbIdx = (lbIdx + 1) % IMGS[lbCat].length;
+    loadLbImg();
+}
+
+function closeLb() {
+    document.getElementById('lightbox').classList.remove('show');
+    document.body.style.overflow = '';
+    // 清理图片
+    if (lbImg) { lbImg.remove(); lbImg = null; }
+    document.getElementById('lbSpinner').innerHTML = '<div class="spin"></div><span style="color:#555;font-size:13px">加载中...</span>';
+}
+
+// 点击背景关闭
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLb();
+});
+
+// 键盘控制
+document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('show')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') lbPrev();
+    if (e.key === 'ArrowRight') lbNext();
+});
+
+// 触摸滑动
+let touchStartX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+document.getElementById('lightbox').addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { dx < 0 ? lbNext() : lbPrev(); }
+});
+
+// ===== 分类筛选 =====
+function switchTab(btn, cat) {
+    btn.closest('.sub-tabs').querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#tilesGrid .img-card').forEach(card => {
+        if (cat === 'all') {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.toggle('hidden', card.dataset.cat !== cat);
         }
     });
-</script>
+}
 
+// ===== 汉堡菜单 =====
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+
+// ===== 滚动动画 =====
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== 导航高亮 =====
+const secs = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-menu a');
+window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id; });
+    navLinks.forEach(l => {
+        l.classList.remove('active');
+        if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
+    });
+}, { passive: true });
+
+// ===== 留言表单 =====
+function submitForm(e) {
+    e.preventDefault();
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+    e.target.reset();
+}
+</script>
 </body>
 </html>
